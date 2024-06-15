@@ -1,0 +1,37 @@
+{
+    "users":[
+        {
+            "firstName":"Kayden",
+            "lastName":"McManaway",
+            "dateOfBirth":"2.1.2006",
+            "address":"8 St James Avenue",
+            "city":"Richmond",
+            "conditions":["ADHD", "Other"],
+            "prescriptions":["Methylphenidate Hydrochloride", "Other"],
+            "passwordHash":"098f6bcd4621d373cade4e832627b4f6",
+            "account":"patient"
+        },
+        {
+            "firstName":"Madeline",
+            "lastName":"Yval",
+            "dateOfBirth":"1.4.1968",
+            "address":"23 Churchill Road",
+            "city":"Nelson",
+            "conditions":[""],
+            "prescriptions":[""],
+            "passwordHash":"098f6bcd4621d373cade4e832627b4f6",
+            "account":"provider"
+        },
+        {
+            "firstName":"Bob",
+            "lastName":"Smith",
+            "dateOfBirth":"2.12.1998",
+            "address":"19 Amos Street",
+            "city":"Richmond",
+            "conditions":["Depression", "Anxiety"],
+            "prescriptions":["Fluoxetine", "Other"],
+            "passwordHash":"098f6bcd4621d373cade4e832627b4f6",
+            "account":"patient"
+        }
+    ]
+}

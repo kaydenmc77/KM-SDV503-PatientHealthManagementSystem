@@ -1,12 +1,16 @@
 {
   "name": "workspace",
   "version": "1.0.0",
-  "description": "",
+  "description": "SDV503 Assessment 3 Patient Health Management System Project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@inquirer/prompts": "^5.0.5"
+  }
 }
