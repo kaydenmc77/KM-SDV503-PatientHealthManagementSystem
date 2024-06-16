@@ -11,6 +11,7 @@ export function addTestPatient(decider) {
                 city:"Richmond",
                 conditions:["ADHD", "Other"],
                 prescriptions:["Methylphenidate Hydrochloride", "Other"],
+                username:"kaydenmc77",
                 passwordHash:"098f6bcd4621d373cade4e832627b4f6",
                 account:"patient"
             }
@@ -23,6 +24,7 @@ export function addTestPatient(decider) {
                 city:"Nelson",
                 conditions:[],
                 prescriptions:[],
+                username: "madelineyv88",
                 passwordHash:"098f6bcd4621d373cade4e832627b4f6",
                 account:"provider"
             }
@@ -35,6 +37,7 @@ export function addTestPatient(decider) {
                 city:"Richmond",
                 conditions:["Depression", "Anxiety"],
                 prescriptions:["Fluoxetine", "Other"],
+                username:"bobsm99",
                 passwordHash:"098f6bcd4621d373cade4e832627b4f6",
                 account:"patient"
             }

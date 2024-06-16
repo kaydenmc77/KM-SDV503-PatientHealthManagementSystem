@@ -11,6 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@inquirer/prompts": "^5.0.5"
+    "@inquirer/editor": "^2.1.9",
+    "@inquirer/prompts": "^5.0.5",
+    "colors": "^1.4.0",
+    "inquirer": "^9.2.23",
+    "md5": "^2.3.0",
+    "path": "^0.12.7"
   }
 }
