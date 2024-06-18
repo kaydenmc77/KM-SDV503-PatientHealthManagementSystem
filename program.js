@@ -12,13 +12,13 @@ import md5 from 'md5';
 // Imports the colours string module
 import colors from 'colors'
 
-// Variables to act as a "session" to store user info
+// Variable to act as a "session" to store user info
 let accountID = 0;
 
 //SECTION Program Setup
 
 // Sets the file path for the record storage JSON file
-const filePath = path.join(__dirname, './dataSet.json');
+const filePath = path.join('./dataSet.json');
 
 // Defines a temporary array to store records in
 let records = [];
@@ -194,7 +194,7 @@ async function logInOrSignUp() {
         await inquirer.prompt(logInQuestions);
     } else {
         // Close the program if anything else is chosen as the only other option is Quit
-        throw new Error('Shutting down...');
+        process.exit(0)
     }
 }
 
@@ -269,8 +269,9 @@ async function actionMenu() {
             break;
         case 'Quit':
             // Kills the program by throwing an error
-            throw new Error('Quitting program...')
+            process.exit(0)
     }
+    // Saves after each rotation to ensure data retention
     saveToFile()
     // Continuously calls back until the program is quit
     actionMenu()
@@ -338,4 +339,5 @@ function saveToFile() {
     fs.writeFileSync(filePath, jsonData);
 }
 
+// Runs the code
 main()
