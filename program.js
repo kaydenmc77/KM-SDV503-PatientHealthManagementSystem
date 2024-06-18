@@ -14,12 +14,11 @@ import colors from 'colors'
 
 // Variables to act as a "session" to store user info
 let accountID = 0;
-let loggedInUser = {};
 
 //SECTION Program Setup
 
 // Sets the file path for the record storage JSON file
-const filePath = path.join('./dataSet.json');
+const filePath = path.join(__dirname, './dataSet.json');
 
 // Defines a temporary array to store records in
 let records = [];
@@ -74,19 +73,11 @@ async function logInOrSignUp() {
                         let month = parseInt(dateArray[1]);
                         let year = parseInt(dateArray[2]);
 
-                        // Checks if day is a number
-                        if(!isNaN(day)) {
-                            // Checks if day is between 'valid' days (not accounting for variation in days of months)
-                            if(day > 0 && day <= 31) {
-                                // Checks if month is a number
-                                if(!isNaN(month)) {
-                                    // Checks if month is an actual number of a month
-                                    if(month > 0 && day <= 12) {
-                                        // Checks if the year is a number, returns true and continues on with questions
-                                        if(!isNaN(year)) { return true }
-                                    }
-                                }
-                            }
+                        // Checks if day, month and year are all numbers, if yes, return true
+                        if (!isNaN(day) && day > 0 && day <= 31 &&
+                            !isNaN(month) && month > 0 && month <= 12 &&
+                            !isNaN(year)) {
+                            return true;
                         }
                     }
                     return 'The provided date is invalid... Try again.'
@@ -95,7 +86,16 @@ async function logInOrSignUp() {
             {
                 type: 'input',
                 name: 'address',
-                message: 'Enter your address:'
+                message: 'Enter your address:',
+                validate: function (value) {
+                    // Username cannot be empty
+                    if (value.trim().length > 0) {
+                        return true
+                    }
+                    else {
+                        return 'Please enter an address'
+                    }
+                }
             },
             {
                 type: 'list',
@@ -121,8 +121,8 @@ async function logInOrSignUp() {
                     // Username cannot be empty
                     if(value.trim().length > 0) {
                         // Checks every record to see if the username already exists, allows the user to proceed if not
-                        for (let i = 0; i < records.length; i++) {
-                            if (records[i].username == value) { return 'This username is already taken' }
+                        if (records.some(record => record.username === value)) {
+                            return 'This username is already taken';
                         }
                         return true
                     }   
@@ -142,7 +142,7 @@ async function logInOrSignUp() {
                         return true
                     }
                     else {
-                        return 'This username is not long enough'
+                        return 'Please enter a password'
                     } 
                 }
             },
@@ -157,10 +157,10 @@ async function logInOrSignUp() {
         let account = await inquirer.prompt(signUpQuestions);
         // Hashs the password for account security
         account.password = md5(account.password);
-        // Adds the account to the records and the session
+        // Adds the account to the records array
         records.push(account);
-        loggedInUser = account;
-
+        // Gets the index of the last record added and sets it as the session account ID
+        accountID = ((records.length)-1);
     } else if (answer.accountchoice == 'Log In') {
         const logInQuestions = [
             {
@@ -192,8 +192,6 @@ async function logInOrSignUp() {
         ]
 
         await inquirer.prompt(logInQuestions);
-        // Adds the account to the temporary session
-        loggedInUser = records[accountID];
     } else {
         // Close the program if anything else is chosen as the only other option is Quit
         throw new Error('Shutting down...');
@@ -208,7 +206,7 @@ async function actionMenu() {
     // Defines the available choices for the first question based on the permissions of the account
     // Patients can only access their records while providers can access all records
     let actionMenuChoices = []
-    if(loggedInUser.account === 'Provider') {
+    if(records[accountID].account === 'Provider') {
         actionMenuChoices = ['View my records', 'Update my records', 'View all records', `View a patient's records`, `Update a patient's records`, 'Quit']
     }
     else {
@@ -254,8 +252,9 @@ async function actionMenu() {
         case 'View all records':
             // Iterates through the records list and prints the 'pretty' version
             for(let i = 0; i<records.length; i++) {
-                displaySafeRecords[i]
+                displaySafeRecords(i)
             }
+            break;
         case `View a patient's records`:
             // Asks the user for the username of the chosen patient, which then finds the relevant array index and sets it as accountToView
             await inquirer.prompt(questions[1]);

@@ -31,5 +31,27 @@
     "username": "bobsm22",
     "password": "098f6bcd4621d373cade4e832627b4f6",
     "account": "Patient"
+  },
+  {
+    "name": "Steve Gates",
+    "dob": "10.10.2000",
+    "address": "9 Fort Lane",
+    "city": "Motueka",
+    "conditions": "ADHD, Depression, Multiple Sclerosis",
+    "prescriptions": "Methylphenidate, Fluoxetine, Panadol, Ibuprofen",
+    "username": "stevega66",
+    "password": "098f6bcd4621d373cade4e832627b4f6",
+    "account": "Patient"
+  },
+  {
+    "name": "Alice Vivian",
+    "dob": "10.10.1996",
+    "address": "94 Valley Road",
+    "city": "Nelson",
+    "conditions": "Anxiety, Depression, Celiac",
+    "prescriptions": "Fluoxetine, Panadol",
+    "username": "alicevi77",
+    "password": "098f6bcd4621d373cade4e832627b4f6",
+    "account": "Provider"
   }
 ]
