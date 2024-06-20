@@ -5,7 +5,7 @@
     "address": "8 St James Avenue",
     "city": "Richmond",
     "conditions": "ADHD, Other",
-    "prescriptions": "Methylphenidate Hydrochloride, Other",
+    "prescriptions": "Methylphenidate Hydrochloride, Other, Methylphenidate Hydrochloride",
     "username": "kaydenmc77",
     "password": "098f6bcd4621d373cade4e832627b4f6",
     "account": "Patient"
@@ -15,8 +15,8 @@
     "dob": "1.4.1968",
     "address": "23 Churchill Road",
     "city": "Nelson",
-    "conditions": "",
-    "prescriptions": "",
+    "conditions": "ADHD",
+    "prescriptions": "Methylphenidate, Panadol",
     "username": "madelineyv11",
     "password": "098f6bcd4621d373cade4e832627b4f6",
     "account": "Provider"
@@ -49,9 +49,20 @@
     "address": "94 Valley Road",
     "city": "Nelson",
     "conditions": "Anxiety, Depression, Celiac",
-    "prescriptions": "Fluoxetine, Panadol",
+    "prescriptions": "Fluoxetine, Panadol, Ibuprofen",
     "username": "alicevi77",
     "password": "098f6bcd4621d373cade4e832627b4f6",
     "account": "Provider"
+  },
+  {
+    "name": "Alan Wake",
+    "dob": "12.12.2000",
+    "address": "19 Fort Lane",
+    "city": "Nelson",
+    "conditions": "ADHD, Depression",
+    "prescriptions": "Methylphenidate",
+    "username": "alanwa99",
+    "password": "098f6bcd4621d373cade4e832627b4f6",
+    "account": "Patient"
   }
 ]
